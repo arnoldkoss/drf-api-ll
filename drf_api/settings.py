@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'detectorists',
     'posts',
     'comments',
+    'likes',
 ]
 
 MIDDLEWARE = [
