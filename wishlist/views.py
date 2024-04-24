@@ -1,5 +1,5 @@
 from rest_framework import generics, permissions
-from backend.permissions import IsOwnerOrReadOnly
+from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Wishlist
 from .serializers import WishlistSerializer
 
@@ -14,7 +14,7 @@ class WishlistList(generics.ListCreateAPIView):
     """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = WishlistSerializer
-    queryset = Wishlist.objects.all()
+    queryset = Wishlist.objects.all()   
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
