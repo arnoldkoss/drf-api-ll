@@ -10,7 +10,7 @@ class FavoriteSerializer(serializers.ModelSerializer):
     constraints are respected between 'owner' and 'post',
     and 'owner' and 'detectorist'.
     """
-    owner_username = serializers.ReadOnlyField(source='owner.username')
+    owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Favorite
