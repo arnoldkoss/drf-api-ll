@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
+from wishlist.models import Wishlist
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -12,6 +13,7 @@ class PostSerializer(serializers.ModelSerializer):
     detectorist_image = serializers.ReadOnlyField(
         source='owner.detectorist.image.url')
     like_id = serializers.SerializerMethodField()
+    wishlist_id = serializers.SerializerMethodField()
 
     
     def validate_image(self, value):
@@ -39,6 +41,16 @@ class PostSerializer(serializers.ModelSerializer):
             ).first()
             return like.id if like else None
         return None
+    
+
+    def get_wishlist_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            wishlist = Wishlist.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return wishlist.id if wishlist else None
+        return None
 
     class Meta:
         model = Post
@@ -46,5 +58,5 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'detectorist_id',
             'detectorist_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'location', 'era',
-            'like_id'
+            'like_id', 'wishlist_id'
         ]
