@@ -2,6 +2,7 @@ from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
 from wishlist.models import Wishlist
+from favorites.models import Favorite
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -14,6 +15,7 @@ class PostSerializer(serializers.ModelSerializer):
         source='owner.detectorist.image.url')
     like_id = serializers.SerializerMethodField()
     wishlist_id = serializers.SerializerMethodField()
+    favorite_id = serializers.SerializerMethodField()
 
     
     def validate_image(self, value):
@@ -52,11 +54,21 @@ class PostSerializer(serializers.ModelSerializer):
             return wishlist.id if wishlist else None
         return None
 
+
+    def get_favorite_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            favorite = Favorite.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return favorite.id if favorite else None
+        return None
+
     class Meta:
         model = Post
         fields = [
             'id', 'owner', 'is_owner', 'detectorist_id',
             'detectorist_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'location', 'era',
-            'like_id', 'wishlist_id'
+            'like_id', 'wishlist_id', 'favorite_id'
         ]
