@@ -13,7 +13,7 @@ class Favorite(models.Model):
     owner = models.ForeignKey(
         User, related_name='favorites', on_delete=models.CASCADE)
     post = models.ForeignKey(
-        Post, related_name='favorited_by', on_delete=models.CASCADE)
+        Post, related_name='favorite', on_delete=models.CASCADE)
     detectorist = models.ForeignKey(
         Detectorist, related_name='favorited_by_users', on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

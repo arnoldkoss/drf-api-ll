@@ -14,8 +14,13 @@ class PostSerializer(serializers.ModelSerializer):
     detectorist_image = serializers.ReadOnlyField(
         source='owner.detectorist.image.url')
     like_id = serializers.SerializerMethodField()
+    likes_count = serializers.ReadOnlyField()
     wishlist_id = serializers.SerializerMethodField()
+    wishlists_count = serializers.ReadOnlyField()
     favorite_id = serializers.SerializerMethodField()
+    favorites_count = serializers.ReadOnlyField()
+    comments_count = serializers.ReadOnlyField()
+    
 
     
     def validate_image(self, value):
@@ -70,5 +75,7 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'detectorist_id',
             'detectorist_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'location', 'era',
-            'like_id', 'wishlist_id', 'favorite_id'
+            'like_id', 'likes_count', 'comments_count', 
+            'wishlists_count', 'wishlist_id', 'favorites_count',
+            'favorite_id'
         ]
