@@ -22,6 +22,7 @@ class DetectoristList(generics.ListAPIView):
     ]
     filterset_fields = [
         'owner__following__followed__detectorist',
+        'owner__followed__owner__detectorist',
     ]
     ordering_fields = [
         'posts_count',
