@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+    'django_filters',
     
     'detectorists',
     'posts',
@@ -59,6 +60,9 @@ INSTALLED_APPS = [
     'wishlist',
     'favorites',
 ]
+
+
+CSRF_TRUSTED_ORIGINS = ['https://8000-arnoldkoss-drfapill-mh5hgi46bj4.ws-eu110.gitpod.io']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
