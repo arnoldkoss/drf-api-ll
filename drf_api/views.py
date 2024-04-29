@@ -5,5 +5,5 @@ from rest_framework.response import Response
 @api_view()
 def root_route(request):
     return Response({
-        "message": "Welcome to my Detectorist App API!"
+        "message": "Welcome to my Metal detecting App API!"
     })
