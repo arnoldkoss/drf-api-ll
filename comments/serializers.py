@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from .models import Comment
-from likes.models import Like
+
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -17,24 +17,14 @@ class CommentSerializer(serializers.ModelSerializer):
         source='owner.detectorist.image.url')
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
-    like_id = serializers.SerializerMethodField()
-    likes_count = serializers.ReadOnlyField()
+    
     
 
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
     
-    def get_like_id(self, obj):
-        # Retrive the ID of a "Like" if it exists for the
-        # authenticated user and object.
-        user = self.context['request'].user
-        if user.is_authenticated:
-            like = Like.objects.filter(
-                owner=user, comment=obj
-            ).first()
-            return like.id if like else None
-        return None
+    
     
     def get_created_at(self, obj):
         # Convert the created_at timestamp to a human-readable form.
@@ -50,7 +40,7 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'detectorist_id', 'detectorist_image',
             'post', 'created_at', 'updated_at', 'content',
-            'like_id', 'likes_count',
+            
         ]
 
 
