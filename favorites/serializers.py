@@ -14,7 +14,7 @@ class FavoriteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Favorite
-        fields = ['id', 'owner', 'post', 'detectorist', 'created_at']
+        fields = ['id', 'owner', 'detectorist', 'created_at']
 
     def create(self, validated_data):
         try:
