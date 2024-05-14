@@ -34,7 +34,7 @@ class PostList(generics.ListCreateAPIView):
         'likes__owner__detectorist',
         'owner__detectorist',
         'wishlist__owner__detectorist',
-        'favorite__owner__detectorist',
+        'favorites__owner__detectorist',
         
 
     ]
