@@ -17,19 +17,24 @@ class PostList(generics.ListCreateAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
         wishlists_count=Count('wishlist', distinct=True),
+        favorites_count=Count('favorites', distinct=True),
         
     ).order_by('-created_at')
+
+    # Define filter backends for ordering, searching and filtering
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
         DjangoFilterBackend,
     ]
+
+    # Define fields for filtering
     filterset_fields = [
         'owner__followed__owner__detectorist',
         'likes__owner__detectorist',
         'owner__detectorist',
         'wishlist__owner__detectorist',
-        
+        'favorite__owner__detectorist',
         
 
     ]
@@ -37,12 +42,16 @@ class PostList(generics.ListCreateAPIView):
         'owner__username',
         'title',
     ]
+
+    # Define fields for ordering
     ordering_fields = [
         'likes_count',
         'comments_count',
         'wishlists_count',
+        'favorites_count',
         'likes__created_at',
         'wishlists__created_at',
+        'favorites__created_at',
         
     ]
 
@@ -60,5 +69,6 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
         wishlists_count=Count('wishlist', distinct=True),
+        favorites_count=Count('favorites', distinct=True),
         
     ).order_by('-created_at')
