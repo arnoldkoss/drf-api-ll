@@ -220,4 +220,15 @@ During the manual testing of the API, the following steps were performed:
 
 
 
-#### Search functionality
+#### Search Functionality
+
+Searching for Title and Detectorist is working as expected.
+
+
+#### Summary
+The testing process for the Lost-Legends API has been exhaustive and meticulous, reinforcing the robustness and reliability of the platform. Python's best coding practices were upheld by utilizing the PEP 8 tool to check for errors in each application module.
+
+Automated testing has been a critical part of the process, covering key functionalities such as post listing, post creation, post retrieval, post updates, and user consistency.
+
+All tests for the Lost-Legends API have been passed, demonstrating its readiness for deployment and public use. 
+
