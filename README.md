@@ -78,5 +78,54 @@ Here is a summary of the identified bugs along with brief descriptions of their 
 
 All tests for the Lost-Legends API have been passed, demonstrating its readiness for deployment and public use.
 
-- Code Validation
+### Code Validation
   - [PEP8](https://pep8ci.herokuapp.com/) is a style guide for writing Python code to ensure consistency and readability. It provides guidelines on how to format code, naming conventions for variables and functions, and other best practices. Following PEP 8 helps to improve code quality, readability, and maintainability.
+
+ #### drf-api
+
+ | **Tested**    | **Result**    | **View Result** | **Pass** |
+|---------------|---------------|-----------------|----------|
+| serializers   | No errors     | Result          | ✅       |
+| settings      | No errors     | Result          | ✅       |
+| urls          | No errors     | Result          | ✅       |
+| views         | No errors     | Result          | ✅       |
+    
+
+#### Wishlist
+
+| **Tested**    | **Result**    | **View Result** | **Pass** |
+|---------------|---------------|-----------------|----------|
+| models        | No errors     | Result          | ✅       |
+| serializers   | No errors     | Result          | ✅       |
+| urls          | No errors     | Result          | ✅       |
+| views         | No errors     | Result          | ✅      
+
+#### Comments
+
+| **Tested**    | **Result**    | **View Result** | **Pass** |
+|---------------|---------------|-----------------|----------|
+| models        | No errors     | Result          | ✅       |
+| serializers   | No errors     | Result          | ✅       |
+| urls          | No errors     | Result          | ✅       |
+| views         | No errors     | Result          | ✅  
+
+#### Following     
+| **Tested**    | **Result**    | **View Result** | **Pass** |
+|---------------|---------------|-----------------|----------|
+| models        | No errors     | Result          | ✅       |
+| serializers   | No errors     | Result          | ✅       |
+| urls          | No errors     | Result          | ✅       |
+| views         | No errors     | Result          | ✅       |
+
+
+
+#### Likes
+
+| **Tested**    | **Result**    | **View Result** | **Pass** |
+|---------------|---------------|-----------------|----------|
+| models        | No errors     | Result          | ✅       |
+| serializers   | No errors     | Result          | ✅       |
+| urls          | No errors     | Result          | ✅       |
+| views         | No errors     | Result          | ✅       |
+
+#### 
