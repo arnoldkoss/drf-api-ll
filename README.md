@@ -232,3 +232,50 @@ Automated testing has been a critical part of the process, covering key function
 
 All tests for the Lost-Legends API have been passed, demonstrating its readiness for deployment and public use. 
 
+
+### Languages
+
+- Python
+
+### Frameworks
+
+- Django: A high-level Python web framework used for building the Lost Legends API.
+
+### Database
+
+ElephantSQL: ElephantSQL is a PostgreSQL database as a service. It is used as the database for the Lost Legends project, providing a reliable and scalable storage solution for the application's data.
+
+### Tools
+
+- Git: A distributed version control system used for tracking changes in the project's source code.
+- GitHub: A web-based hosting service for version control repositories, used for storing and managing the project's source code.
+- Gitpod: An online integrated development environment (IDE) used for developing and testing the Lost Legends project.
+- Heroku: A cloud platform that enables deployment and hosting of web applications. Heroku was used for deploying the Lost Legends project to a live server.
+- DBdiagram: The database schema for this project was designed and visualized using [DBdiagram](https://dbdiagram.io/). This tool facilitated the creation of a clear and structured representation of the database, ensuring that all relationships and constraints were properly defined.
+- [Pexels](https://www.pexels.com/sv-se/): The images used in this project are sourced from Pexels. Pexels provides high-quality and completely free stock photos licensed under the Pexels license. This resource was invaluable in enhancing the visual appeal and user experience of my application.
+
+### Supporting Libraries and Packages
+
+- Asgiref: A server gateway interface for Django, it acts as a translation layer between the web server and Django.
+- Cloudinary, django-cloudinary-storage: Used for managing the storage and delivery of images through Cloudinary, a cloud-based service.
+- Dj-database-url: Utility to help you load your database into your dictionary from the DATABASE_URL environment variable.
+- Dj-rest-auth, Django-allauth, djangorestframework-simplejwt, PyJWT, oauthlib, requests-oauthlib, python3-openid: These libraries are used for managing user authentication, providing support for JWT tokens, OAuth and OpenID.
+- Django, django-rest-framework, django-filter: These are core components of the Django web framework, used for building the backend of the Lost Legends application.
+- gunicorn: A Python WSGI HTTP server for UNIX, used in deploying the application.
+- Pillow: An imaging library in Python, allowing support for opening, manipulating, and saving many different image file formats.
+- psycopg2: PostgreSQL adapter for Python, enabling Python to connect to the PostgreSQL database.
+
+
+### Deployment
+
+Deploying the Django backend of the Lost Legends application involves below steps:
+
+- Create Required Accounts: If you haven't done so yet, create accounts on Heroku, ElephantSQL, and Cloudinary. These services are necessary for hosting the application, managing the database, and storing images, respectively.
+- Prepare the Application: Set DEBUG to False in the settings.py file, which ensures that the application runs in production mode during deployment. Commit all changes and push your code to your GitHub repository.
+- Create a New Application on Heroku: From your Heroku dashboard, create a new application and select the appropriate region.
+- Set Environment Variables: In your local env.py file, set your environment variables including the ElephantSQL URL, Cloudinary URL, and Django Secret Key. These variables should also be added to your Heroku app settings under the Config Vars section. This ensures that these services can communicate with your Heroku app.
+- Database Management: Ensure that all database migrations have been made and the current state of your models is reflected in the database schema. The command python manage.py makemigrations and python manage.py migrate are usually used for this purpose in Django.
+- Deployment Process: In your Heroku dashboard, go to your application's deploy page. Connect your GitHub repository to your Heroku application under the "Deployment method" section. Under the "Manual deploy" section, select the branch you want to deploy and click "Deploy Branch".
+- Verify Deployment: Once the deployment is successful, Heroku will provide a URL to access the live application. Test the application to ensure all components are functioning properly.
+
+Remember to avoid exposing your environment variables in your public repository. Use the Config Vars section in Heroku to securely set your environment variables.
