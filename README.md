@@ -45,3 +45,38 @@ This model represents the list of posts that a user wants to keep track of. It i
 
 Each of these models serves a unique purpose and together they support a range of features in your application, from user registration and social networking to content creation and curation.
 
+## Bugs
+
+### Known bugs (Samsung Galaxy A34)
+
+- There is a known bug identified in the initial codebase that has been acknowledged and will not be addressed prior to the project submission.
+
+  - Description:
+  After registering for a new account, the user is redirected to the login page. However, the user is unable to log in with the correct username and password. This issue occurs only on mobile phones and not on desktops.
+  - Steps to Reproduce:
+    - Go to the login page on a mobile phone
+    - Enter the correct username and password.
+    - Click on the submit button.
+    - Observe the error.
+  - Expected Behavior:
+    - The user should be redirected to the home page with the logged-in navbar displayed.
+  - Desktop:
+    - No issues encountered on desktop.
+  - Smartphone:
+    - Samsung Galaxy A34
+
+
+## Fixed bugs
+Here is a summary of the identified bugs along with brief descriptions of their fixes.
+| **Bug** | **Description** | **Fix** |
+| --- | --- | --- |
+| **Filter function is not working** | Added filter used in frontend | Implemented the filter function in the frontend to ensure proper data filtering. |
+| **favorites_count showing NaN in posts** | Correct connection in queryset for posts | Fixed the connection in the queryset to accurately count and display the number of favorites. |
+
+
+## Testing
+
+All tests for the Lost-Legends API have been passed, demonstrating its readiness for deployment and public use.
+
+- Code Validation
+  - [PEP8](https://pep8ci.herokuapp.com/) is a style guide for writing Python code to ensure consistency and readability. It provides guidelines on how to format code, naming conventions for variables and functions, and other best practices. Following PEP 8 helps to improve code quality, readability, and maintainability.
