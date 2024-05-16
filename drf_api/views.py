@@ -12,7 +12,6 @@ def root_route(request):
         "message": "Welcome to my Metal detecting App API!"
     })
 
-
     # dj-rest-auth logout view fix
 @api_view(['POST'])
 def logout_route(request):

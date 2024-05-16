@@ -5,10 +5,13 @@ from .models import Wishlist
 
 class WishlistSerializer(serializers.ModelSerializer):
     """
-        Creates a new Wishlist instance while handling the unique constraint on 'owner' and 'post'.
-        
-        If the unique constraint is violated (i.e., the user has already added the post to their wishlist),
-        this method raises a ValidationError with a custom message indicating a duplicate entry.
+        Creates a new Wishlist instance while handling the unique
+        constraint on 'owner' and 'post'.
+
+        If the unique constraint is violated (i.e., the user has
+        already added the post to their wishlist),
+        this method raises a ValidationError with a custom message
+        indicating a duplicate entry.
         """
     owner = serializers.ReadOnlyField(source='owner.username')
 

@@ -14,7 +14,6 @@ class DetectoristSerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
-    
 
     def get_following_id(self, obj):
         user = self.context['request'].user
@@ -24,7 +23,6 @@ class DetectoristSerializer(serializers.ModelSerializer):
             ).first()
             return following.id if following else None
         return None
-    
 
     class Meta:
         model = Detectorist
@@ -33,3 +31,4 @@ class DetectoristSerializer(serializers.ModelSerializer):
             'content', 'image', 'best_find', 'is_owner', 'following_id',
             'posts_count', 'followers_count', 'following_count'
         ]
+        

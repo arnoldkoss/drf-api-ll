@@ -6,13 +6,13 @@ from .serializers import FavoriteSerializer
 
 class FavoriteList(generics.ListCreateAPIView):
     """
-    Provides a list of all favorite items and 
+    Provides a list of all favorite items and
     allows creation of new favorites.
-    
+
     """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = FavoriteSerializer
-    queryset = Favorite.objects.all()   
+    queryset = Favorite.objects.all()
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

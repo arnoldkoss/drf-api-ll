@@ -7,6 +7,7 @@ from rest_framework import serializers
 # These additional fields are read-only and sourced from the
 # related 'detectorist' object.
 
+
 class CurrentUserSerializer(UserDetailsSerializer):
     detectorist_id = serializers.ReadOnlyField(source='detectorist.id')
     detectorist_image = serializers.ReadOnlyField(source='detectorist.image.url')

@@ -6,12 +6,16 @@ from .serializers import FollowerSerializer
 
 class FollowerList(generics.ListCreateAPIView):
     """
-    Provides a list of all Follower instances and allows for creating a new follow relationship.
-    Only authenticated users can create a new follow relationship. The list of followers
+    Provides a list of all Follower instances and allows
+    for creating a new follow relationship.
+    Only authenticated users can create a new follow relationship.
+    The list of followers
     can be viewed by any user, whether authenticated or not.
 
-    The perform_create method is overridden to automatically set the 'owner' of a new
-    Follower instance to the currently authenticated user, ensuring that users can only
+    The perform_create method is overridden to automatically
+    set the 'owner' of a new
+    Follower instance to the currently authenticated user,
+    ensuring that users can only
     create follow relationships where they are the owner.
     """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -31,3 +35,4 @@ class FollowerDetail(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Follower.objects.all()
     serializer_class = FollowerSerializer
+    

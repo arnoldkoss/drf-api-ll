@@ -8,7 +8,8 @@ from .models import Detectorist
 
 class DetectoristList(generics.ListAPIView):
     """
-    List all detectorists. This endpoint provides a public view of detectorist records.
+    List all detectorists. This endpoint provides a public
+    view of detectorist records.
     """
     queryset = Detectorist.objects.annotate(
         posts_count=Count('owner__post', distinct=True),
@@ -35,7 +36,8 @@ class DetectoristList(generics.ListAPIView):
 
 class DetectoristDetail(generics.RetrieveUpdateAPIView):
     """
-    Retrieve or update a detectorist's record. Only the owner has permission to update.
+    Retrieve or update a detectorist's record.
+    Only the owner has permission to update.
     """
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Detectorist.objects.annotate(

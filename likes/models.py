@@ -3,10 +3,9 @@ from django.contrib.auth.models import User
 from posts.models import Post
 
 
-
 class Like(models.Model):
     """
-    Like model, related to 'owner', 'post' 
+    Like model, related to 'owner', 'post'
     'owner' is a User instance and 'post' is a Post instance.
     'unique_together' makes sure a user can't like the same post twice.
     """
@@ -21,4 +20,3 @@ class Like(models.Model):
 
     def __str__(self):
         return f'{self.owner} {self.post}'
-        

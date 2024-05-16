@@ -3,7 +3,6 @@ from django.contrib.humanize.templatetags.humanize import naturaltime
 from .models import Comment
 
 
-
 class CommentSerializer(serializers.ModelSerializer):
     """
     Serializer for the Comment model
@@ -17,15 +16,11 @@ class CommentSerializer(serializers.ModelSerializer):
         source='owner.detectorist.image.url')
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
-    
-    
 
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
-    
-    
-    
+
     def get_created_at(self, obj):
         # Convert the created_at timestamp to a human-readable form.
         return naturaltime(obj.created_at)
@@ -34,15 +29,12 @@ class CommentSerializer(serializers.ModelSerializer):
         # Convert the updated_at timestamp to a human-readable form.
         return naturaltime(obj.updated_at)
 
-    
     class Meta:
         model = Comment
         fields = [
             'id', 'owner', 'is_owner', 'detectorist_id', 'detectorist_image',
             'post', 'created_at', 'updated_at', 'content',
-            
         ]
-
 
 
 class CommentDetailSerializer(CommentSerializer):

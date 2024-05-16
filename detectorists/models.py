@@ -25,4 +25,5 @@ def create_detectorist(sender, instance, created, **kwargs):
     if created:
         Detectorist.objects.create(owner=instance)
 
+
 post_save.connect(create_detectorist, sender=User)

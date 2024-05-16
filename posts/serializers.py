@@ -20,9 +20,7 @@ class PostSerializer(serializers.ModelSerializer):
     favorite_id = serializers.SerializerMethodField()
     favorites_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
-    
 
-    
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
             raise serializers.ValidationError('Image size larger than 2MB!')
@@ -48,7 +46,6 @@ class PostSerializer(serializers.ModelSerializer):
             ).first()
             return like.id if like else None
         return None
-    
 
     def get_wishlist_id(self, obj):
         user = self.context['request'].user
@@ -59,12 +56,11 @@ class PostSerializer(serializers.ModelSerializer):
             return wishlist.id if wishlist else None
         return None
 
-
     def get_favorite_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
             favorite = Favorite.objects.filter(
-                owner=user, 
+                owner=user,
             ).first()
             return favorite.id if favorite else None
         return None
@@ -75,7 +71,7 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'detectorist_id',
             'detectorist_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'location', 'era',
-            'like_id', 'likes_count', 'comments_count', 
+            'like_id', 'likes_count', 'comments_count',
             'wishlists_count', 'wishlist_id', 'favorites_count',
             'favorite_id'
         ]

@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 class Follower(models.Model):
     """
     Model to represent the following relationship between users.
-    Each instance of this model indicates that the 'owner' user follows the 'followed' user.
+    Each instance of this model indicates that the 'owner' user
+    follows the 'followed' user.
     """
     owner = models.ForeignKey(
         User, related_name='following', on_delete=models.CASCADE

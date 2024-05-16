@@ -3,7 +3,6 @@ from django.db import IntegrityError
 from likes.models import Like
 
 
-
 class LikeSerializer(serializers.ModelSerializer):
     """
     Serializer for the Like model
@@ -14,7 +13,7 @@ class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = ['id', 'created_at', 'owner', 'post']
-    
+
     def create(self, validated_data):
         try:
             return super().create(validated_data)
@@ -22,4 +21,3 @@ class LikeSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({
                 'detail': 'possible duplicate'
             })
-

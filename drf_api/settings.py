@@ -28,13 +28,13 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [( 
-        'rest_framework.authentication.SessionAuthentication' 
+    'DEFAULT_AUTHENTICATION_CLASSES': [(
+        'rest_framework.authentication.SessionAuthentication'
         if 'DEV' in os.environ
         else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
     )],
     'DEFAULT_PAGINATION_CLASS':
-      'rest_framework.pagination.PageNumberPagination',
+    'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
     'DATETIME_FORMAT': '%d %b %Y',
 }
@@ -57,8 +57,6 @@ REST_AUTH_SERIALIZERS = {
 }
 
 
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -68,10 +66,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEBUG' in os.environ
 
-ALLOWED_HOSTS = ['8000-arnoldkoss-drfapill-mh5hgi46bj4.ws-eu110.gitpod.io', 
-                os.environ.get('ALLOWED_HOST'),
-                '8000-arnoldkoss-drfapill-mh5hgi46bj4.ws-eu111.gitpod.io'
-                ]
+ALLOWED_HOSTS = ['8000-arnoldkoss-drfapill-mh5hgi46bj4.ws-eu110.gitpod.io',
+                 os.environ.get('ALLOWED_HOST'),
+                 '8000-arnoldkoss-drfapill-mh5hgi46bj4.ws-eu111.gitpod.io'
+                 ]
 
 
 # Application definition
@@ -87,17 +85,17 @@ INSTALLED_APPS = [
     'cloudinary',
     'rest_framework',
     'django_filters',
-    'rest_framework.authtoken', 
+    'rest_framework.authtoken',
     'dj_rest_auth',
-    'django.contrib.sites', 
-    'allauth', 
-    'allauth.account', 
-    'allauth.socialaccount', 
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'dj_rest_auth.registration',
     'corsheaders',
 
 
-    
+
     'detectorists',
     'posts',
     'comments',
@@ -108,7 +106,9 @@ INSTALLED_APPS = [
 ]
 
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-arnoldkoss-drfapill-mh5hgi46bj4.ws-eu110.gitpod.io']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-arnoldkoss-drfapill-mh5hgi46bj4.ws-eu110.gitpod.io'
+]
 SITE_ID = 1
 
 MIDDLEWARE = [
