@@ -9,6 +9,42 @@ Lost Legends is a content-sharing platform designed for metal detecting enthusia
 
 ## Table of Content
 
+- [Lost-Legends - API](#lost-legends---api)
+  - [Database Schema](#database-schema)
+  - [Models](#models)
+    - [Wishlist](#wishlist)
+    - [Comments](#comments)
+    - [Following](#following)
+    - [Likes](#likes)
+    - [Posts](#posts)
+    - [Detectorists](#detectorists)
+    - [Favorites](#favorites)
+  - [Bugs](#bugs)
+    - [Known Bugs](#known-bugs-samsung-galaxy-a34)
+    - [Fixed Bugs](#fixed-bugs)
+  - [Testing](#testing)
+    - [Code Validation](#code-validation)
+    - [drf-api](#drf-api)
+    - [Wishlist](#wishlist)
+    - [Comments](#comments)
+    - [Following](#following)
+    - [Likes](#likes)
+    - [Favorites](#favorites)
+    - [Posts](#posts)
+    - [Detectorists](#detectorists)
+    - [Automated Testing](#automated-testing)
+    - [Manual Testing](#manual-testing)
+    - [URL Testing](#url-testing)
+    - [CRUD Functionality](#crud-functionality)
+    - [Search Functionality](#search-functionality)
+    - [Summary](#summary)
+  - [Languages](#languages)
+  - [Frameworks](#frameworks)
+  - [Database](#database)
+  - [Tools](#tools)
+  - [Supporting Libraries and Packages](#supporting-libraries-and-packages)
+  - [Deployment](#deployment)
+
 ## Database
 The Lost-Legends API utilizes the following database schema:
 
