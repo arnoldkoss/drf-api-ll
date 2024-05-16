@@ -128,4 +128,96 @@ All tests for the Lost-Legends API have been passed, demonstrating its readiness
 | urls          | No errors     | Result          | ✅       |
 | views         | No errors     | Result          | ✅       |
 
-#### 
+#### Favorites
+
+| **Tested**    | **Result**    | **View Result** | **Pass** |
+|---------------|---------------|-----------------|----------|
+| models        | No errors     | Result          | ✅       |
+| serializers   | No errors     | Result          | ✅       |
+| urls          | No errors     | Result          | ✅       |
+| views         | No errors     | Result          | ✅       |
+
+#### Posts
+
+| **Tested**    | **Result**    | **View Result** | **Pass** |
+|---------------|---------------|-----------------|----------|
+| models        | No errors     | Result          | ✅       |
+| serializers   | No errors     | Result          | ✅       |
+| tests         | No errors     | Result          | ✅       |
+| urls          | No errors     | Result          | ✅       |
+| views         | No errors     | Result          | ✅       |
+
+
+#### Detectorists
+
+| **Tested**    | **Result**    | **View Result** | **Pass** |
+|---------------|---------------|-----------------|----------|
+| models        | No errors     | Result          | ✅       |
+| serializers   | No errors     | Result          | ✅       |
+| tests         | No errors     | Result          | ✅       |
+| urls          | No errors     | Result          | ✅       |
+| views         | No errors     | Result          | ✅       |
+
+
+### Automated testing
+
+The application have used some automated testing to ensure the functionality of the Posts API endpoints as well as the consistent extension of the User model with the Detectorist model. Here is an overview of the tests:
+
+Post Listing: To verify that the API correctly lists the posts available. Post Creation: To check whether an authenticated user can successfully create a post. Unauthorized Post Creation: To ensure that unauthenticated users are not allowed to create posts. Post Retrieval: The test verify that posts can be retrieved using valid identifiers. Additionally, it will check that the system correctly handles retrieval requests for non-existent posts. Post Updates: To confirm that a user can update their own posts, and importantly, they cannot modify other user's posts. User-Detectorist Consistency: We run tests to confirm that each user is always extended with the Detectorist model.
+
+Upon successful execution of the tests, you should see output similar to the following:
+
+![automated-tests](./docs/auto-tests.png)
+
+
+### Manual testing
+
+During the manual testing of the API, the following steps were performed:
+- Ensured that all URL paths were created correctly and functioning without any errors.
+- Verification of CRUD Functionality:
+  -  Verified the functionality of Create, Read, Update, and Delete operations for various entities such as posts, wishlists, favorites, comments, followers, likes, and detectorists.
+  - Created new items and confirmed the proper functioning of the corresponding URLs.
+  - Verified the Edit functionality.
+  - Tested the delete function to ensure its correctness.
+  - Check delete function.
+- Validation of Post Search Functionality:
+  - Tested the search functionality specifically for posts.
+  - Ensured that the search feature for posts was functioning as expected.
+
+
+### URL Testing
+
+| **Tested**             | **Expected result**                | **Result**           | **Pass** |
+|------------------------|------------------------------------|----------------------|----------|
+| Root URL               | Show welcome message               | Works as expected    | ✅       |
+| /wishlist              | Display wishlist                   | Works as expected    | ✅       |
+| /wishlist/{id}         | Display wishlist detail            | Works as expected    | ✅       |
+| /favorites             | Display favorites list             | Works as expected    | ✅       |
+| /favorites/{id}        | Display favorite detail            | Works as expected    | ✅       |
+| /posts                 | Display posts list                 | Works as expected    | ✅       |
+| /posts/{id}            | Display posts detail               | Works as expected    | ✅       |
+| /comments              | Display comments list              | Works as expected    | ✅       |
+| /comments/{id}         | Display comment detail             | Works as expected    | ✅       |
+| /likes                 | Display likes list                 | Works as expected    | ✅       |
+| /likes/{id}            | Display like detail                | Works as expected    | ✅       |
+| /detectorists          | Display detectorists list          | Works as expected    | ✅       |
+| /detectorists/{id}     | Display detectorist detail         | Works as expected    | ✅       |
+| /followers             | Display followers list             | Works as expected    | ✅       |
+| /followers/{id}        | Display follower detail            | Works as expected    | ✅       |
+
+
+### CRUD Functionality
+
+| **Tested**    | **Create** | **View** | **Update** | **Delete** |
+|---------------|------------|----------|------------|------------|
+| Wishlist      | ✅          | ✅        | -          | ✅          |
+| Post          | ✅          | ✅        | ✅          | ✅          |
+| Comment       | ✅          | ✅        | ✅          | ✅          |
+| Like          | ✅          | ✅        | -          | ✅          |
+| Follow        | ✅          | ✅        | -          | ✅          |
+| Favorites     | ✅          | ✅        | -          | ✅          |
+| Detectorist   | ✅          | ✅        | ✅          | ✅          |
+
+
+
+#### Search functionality
