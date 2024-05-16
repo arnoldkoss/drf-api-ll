@@ -6,6 +6,7 @@ from favorites.models import Favorite
 
 
 class PostSerializer(serializers.ModelSerializer):
+    # Read-only field for the username of the post owner
     owner = serializers.ReadOnlyField(
         source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -21,6 +22,7 @@ class PostSerializer(serializers.ModelSerializer):
     favorites_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
 
+    # Validation method for the image field to check its size and dimensions
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
             raise serializers.ValidationError('Image size larger than 2MB!')
@@ -34,10 +36,12 @@ class PostSerializer(serializers.ModelSerializer):
             )
         return value
 
+    # Method to check if the request user is the owner of the post
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
 
+    # Method to get the ID of the like if the request user has liked the post
     def get_like_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
@@ -47,6 +51,8 @@ class PostSerializer(serializers.ModelSerializer):
             return like.id if like else None
         return None
 
+    # Method to get the ID of the wishlist if the request user has
+    # added the post to their wishlist
     def get_wishlist_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
@@ -56,6 +62,8 @@ class PostSerializer(serializers.ModelSerializer):
             return wishlist.id if wishlist else None
         return None
 
+    # Method to get the ID of the favorite if the request user has
+    # added the post to their favorites
     def get_favorite_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
