@@ -44,6 +44,7 @@ Lost Legends is a content-sharing platform designed for metal detecting enthusia
   - [Tools](#tools)
   - [Supporting Libraries and Packages](#supporting-libraries-and-packages)
   - [Deployment](#deployment)
+  - [Credits](#credits)
 
 ## Database
 The Lost-Legends API utilizes the following database schema:
@@ -315,3 +316,15 @@ Deploying the Django backend of the Lost Legends application involves below step
 - Verify Deployment: Once the deployment is successful, Heroku will provide a URL to access the live application. Test the application to ensure all components are functioning properly.
 
 Remember to avoid exposing your environment variables in your public repository. Use the Config Vars section in Heroku to securely set your environment variables.
+
+
+### Credits
+
+#### Sources
+
+This project is a variation and largely based on the Code Institute Moments walkthrough project. It contains models and logic from that project which have bee modified for the purpose of the Lost Legends app.
+
+#### Acknowledgments
+
+- My mentor at Code Institute Luke Buchanan
+- Code Institutes tutor team.
