@@ -69,6 +69,7 @@ class PostSerializer(serializers.ModelSerializer):
         if user.is_authenticated:
             favorite = Favorite.objects.filter(
                 owner=user,
+                post=obj,
             ).first()
             return favorite.id if favorite else None
         return None
