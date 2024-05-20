@@ -10,7 +10,9 @@ from rest_framework import serializers
 
 class CurrentUserSerializer(UserDetailsSerializer):
     detectorist_id = serializers.ReadOnlyField(source='detectorist.id')
-    detectorist_image = serializers.ReadOnlyField(source='detectorist.image.url')
+    detectorist_image = serializers.ReadOnlyField(
+        source='detectorist.image.url'
+        )
 
     class Meta(UserDetailsSerializer.Meta):
         fields = UserDetailsSerializer.Meta.fields + (

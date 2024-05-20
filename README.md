@@ -113,7 +113,15 @@ Here is a summary of the identified bugs along with brief descriptions of their 
 
 ## Testing
 
-All tests for the Lost-Legends API have been passed, demonstrating its readiness for deployment and public use.
+- All tests for the Lost-Legends API have been passed, demonstrating its readiness for deployment and public use.
+- The only issues left unfixed from the problems tab are the "lines too long" warnings from the automatically generated settings.py AUTH_PASSWORD_VALIDATORS variable, which contains long strings. These strings were left intact rather than breaking them up into smaller strings to avoid potential issues. This seems to be the general consensus based on research and consultation with the Code Institute's tutors.
+
+![PEP8](./docs/pythonLiner.png)
+![PEP8](./docs/longLine.png)
+
+
+
+
 
 ### Code Validation
   - [PEP8](https://pep8ci.herokuapp.com/) is a style guide for writing Python code to ensure consistency and readability. It provides guidelines on how to format code, naming conventions for variables and functions, and other best practices. Following PEP 8 helps to improve code quality, readability, and maintainability.
